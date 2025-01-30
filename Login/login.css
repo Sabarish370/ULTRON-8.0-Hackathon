@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat';
+    background: linear-gradient(135deg, #000000,#2575fc);
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+}
+
+/*                            Login Container                              */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.logo-png{
+    width: 50%;
+}
+
+.login-card {
+    background: #ffffff;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 30px 30px 30px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 60%;
+    height: 60vh;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+    margin-top: 0;
+}
+label{
+    text-align: start;
+    margin-bottom: 5px;
+}
+::placeholder{
+    text-align: center;
+}
+input{
+    border-radius: 10px;
+    padding: 10px;
+    height: 28px;
+    width: 100%;
+    margin: auto;
+}
+.login-card h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* color: #2575fc; */
+}
+
+.login-label{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.email-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    height: 28px;
+    width: 90%;
+    text-align: center;
+    margin: 10px;
+}
+
+.email-login:hover{
+    background-color:  #2575fc;
+    transform: translateY(-5px) scale(1.05);
+    transition: transform 0.5s;
+}
+
+/* Google Button */
+.google-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    height: 28px;
+    width: 90%;
+    text-align: center;
+    margin: 10px;
+}
+
+.login-submit-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.google-button i {
+    font-size: 18px;
+}
+
+.google-button:hover {
+    background-color:  #2575fc;
+    transform: translateY(-5px) scale(1.05);
+    transition: transform 0.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px 15px;
+    }
+
+    .google-button {
+        padding: 10px 15px;
+        font-size: 8px;
+    }
+    .fa-google{
+        height: 10px;
+    }
+}

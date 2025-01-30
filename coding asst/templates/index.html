@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Variable with Textarea Value</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        color: black;
+    }
+    body {
+        background-color: white;
+    }
+    .page-title {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .sketch-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .sketch-partitions {
+        display: flex;
+        flex-direction: row;
+    }
+    .big-sketch-partition {
+        flex: 8;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .small-sketch-partitions {
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        width: 100%;
+        height: 70vh;
+    }
+    .ai-area, .solution-area {
+        margin: 20px;
+        min-height: 28vh;
+        height: fit-content;
+        width: 90%;
+        border-radius: 25px;
+        border: 3px solid black;
+        padding: 10px;
+    }
+    .sketch-area {
+        margin: 15px;
+        background-color: white;
+        height: 90%;
+        width: 90%;
+        border-radius: 10px;
+        border: 3px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .questions {
+        border: 2px solid black;
+        height: 10vh;
+        padding: 10px;
+    }
+    #codeArea {
+        width: 95%;
+        height: 50vh;
+        border-radius: 0 0 10px 10px;
+        padding: 10px;
+        border: 2px solid black;
+    }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="sketch-container">
+    <div class="page-title"><h1>Code Evaluation</h1></div>
+
+    <div class="sketch-partitions">
+        <div class="big-sketch-partition">
+            <div class="sketch-area">
+                <p class="questions">{{ q_d }}</p>
+                <textarea id="codeArea" rows="10" cols="50"></textarea><br>
+                <button onclick="runCode()">Run</button>
+            </div>
+        </div>
+
+        <div class="small-sketch-partitions">
+            <div class="ai-area"> {{ f_b if f_b else "No feedback available yet" }}</div>
+            <div class="solution-area"></div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    function runCode() {
+        let storedValue = document.getElementById('codeArea').value;
+
+        // Send the updated value to the Flask server
+        fetch('/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ storedValue: storedValue })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Server response:', data);
+            document.querySelector('.ai-area').textContent = data.message;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+</body>
+</html>

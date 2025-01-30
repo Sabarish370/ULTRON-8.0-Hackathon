@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sketch.css">
+</head>
+<body>
+    <div class="sketch-container">
+        <div class="page-title"><h1>Page Title</h1></div>
+        <div class="language-options">
+            <div class="l-s">
+                <select name="language-options" id="language-options">
+                    <option value="csharp">C#</option>
+                    <option value="cpp">C++</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="php">PHP</option>
+                    <option value="go">Go</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="swift">Swift</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="r">R</option>
+                    <option value="sql">SQL</option>
+                    <option value="rust">Rust</option>
+                    <option value="dart">Dart</option>
+                </select>
+            </div>
+        </div>
+        <div class="sketch-partitions">
+            <div class="big-sketch-partition">
+                <div class="sketch-area">
+                    <textarea id="codeArea" rows="10" cols="50"></textarea><br><br>
+                    <!-- <p>Stored Value: <span id="storedValue"></span></p> -->
+                </div>
+            </div>
+            <div class="small-sketch-partitions">
+                <div class="ai-area">
+                    <button class="live-code aa-btn">Live Coding</button>
+                    <button class="code-solution aa-btn">Solution</button>
+                </div>
+                <div class="solution-area"></div>
+            </div>
+        </div>
+        <div class="sketch-error"></div>
+    </div>
+    <script src="sketch.js"></script>
+</body>
+</html>
